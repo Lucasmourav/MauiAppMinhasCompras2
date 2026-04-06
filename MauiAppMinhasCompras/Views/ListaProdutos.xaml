@@ -41,7 +41,7 @@
                             <ViewCell>
                                 
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
+                                    <MenuItem Text="Remover" Clicked="Remover"/>
                                 </ViewCell.ContextActions>
 
                                 <Grid ColumnDefinitions="30, 100, 80, 50, 90">

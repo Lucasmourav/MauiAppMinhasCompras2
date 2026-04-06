@@ -39,7 +39,7 @@ public partial class ListaProdutos : ContentPage
 
     }
 
-    private void MenuItem_Clicked(object sender, EventArgs e)
+    private void Remover(object sender, EventArgs e)
     {
 
     }
