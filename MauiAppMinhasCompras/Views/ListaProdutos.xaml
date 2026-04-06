@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.ListaProdutos"
+             Title="ListaProdutos">
+    <!--Botoes da barra de navegacao do android-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Somar" Clicked="Somar"/>
+        <ToolbarItem Text="Adicionar" Clicked="Adicionar"/>
+
+    </ContentPage.ToolbarItems>
+
+    <!--Definicao dos futuros estilos da tela (tipo tag style para css)-->
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <!--tag body do xaml-->
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <SearchBar x:Name="txt_search" Placeholder="Busca de produtos" 
+                       TextChanged="txt_search_TextChanged"/>
+            
+            <Border>
+                <ListView x:Name="lst_produtos"
+                          IsPullToRefreshEnabled="True"
+                          Refreshing="lst_produtos_Refreshing"
+                          ItemSelected="lst_produtos_ItemSelected">
+                    
+                    <ListView.Header>
+                        <Grid ColumnDefinitions="30, 100, 80, 50, 90">
+                            <Label Grid.Column="0" Text="Id:"/>
+                            <Label Grid.Column="1" Text="Descricao:"/>
+                            <Label Grid.Column="2" Text="Preço:"/>
+                            <Label Grid.Column="3" Text="Qnt:"/>
+                            <Label Grid.Column="4" Text="Total:"/>
+                        </Grid>
+                    </ListView.Header>
+                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
+                                </ViewCell.ContextActions>
+
+                                <Grid ColumnDefinitions="30, 100, 80, 50, 90">
+                                    <Label Grid.Column="0" Text="{Binding Id}"/>
+                                    <Label Grid.Column="1" Text="{Binding Descricao}"/>
+                                    <Label Grid.Column="2" Text="{Binding Preço}"/>
+                                    <Label Grid.Column="3" Text="{Binding Qnt}"/>
+                                    <Label Grid.Column="4" Text="{Binding Total}"/>
+                                </Grid>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+            </Border>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
